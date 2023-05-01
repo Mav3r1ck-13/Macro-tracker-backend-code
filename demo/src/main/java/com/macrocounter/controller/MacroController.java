@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin
 @RestController  //receives incoming web requests
-//@RequestMapping(path = "/daily_food_intake")
+
 public class MacroController {
 
     private final FoodDao foodDao;
