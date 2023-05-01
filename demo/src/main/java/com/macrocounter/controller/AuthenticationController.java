@@ -1,12 +1,11 @@
 package com.macrocounter.controller;
 
 import javax.validation.Valid;
-
+import com.macrocounter.model.*;
 import com.macrocounter.dao.UserDao;
-import com.macrocounter.model.LoginDto;
-import com.macrocounter.model.LoginResponseDto;
-import com.macrocounter.model.RegisterUserDto;
-import com.macrocounter.model.User;
+
+import com.macrocounter.security.jwt.JWTFilter;
+import com.macrocounter.security.jwt.TokenProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
