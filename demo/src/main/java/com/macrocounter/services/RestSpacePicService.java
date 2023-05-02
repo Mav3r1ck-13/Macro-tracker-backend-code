@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestSpacePicService implements SpacePicService{
 
     private static final String API_URL = "https://api.nasa.gov/planetary/apod";
-    private RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate = new RestTemplate();
 
     @Override
     public Food getPic() {

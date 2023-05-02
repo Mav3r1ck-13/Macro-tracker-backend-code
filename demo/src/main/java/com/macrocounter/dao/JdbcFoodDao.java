@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class JdbcFoodDao implements FoodDao{
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public JdbcFoodDao(JdbcTemplate jdbcTemplate) {
 
