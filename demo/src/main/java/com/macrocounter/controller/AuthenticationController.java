@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 
 @RestController
 @CrossOrigin
@@ -53,14 +55,19 @@ public class AuthenticationController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(@Valid @RequestBody RegisterUserDto newUser) {
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    public void register(@RequestBody RegisterUserDto newUser) {
         try {
             User user = userDao.findByUsername(newUser.getUsername());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
         } catch (UsernameNotFoundException e) {
-            userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
+            userDao.create(newUser.getUsername(),newUser.getFirstName(), newUser.getLastName(), newUser.getEmail(), newUser.getPassword(), newUser.getRole());
         }
+    }
+
+    @RequestMapping(value = "/findallusers", method = RequestMethod.GET)
+    public List<User> listOfUsers() {
+        return userDao.findAll();
     }
 
 }
