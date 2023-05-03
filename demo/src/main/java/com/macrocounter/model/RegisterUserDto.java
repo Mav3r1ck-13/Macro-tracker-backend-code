@@ -5,6 +5,12 @@ import javax.validation.constraints.NotEmpty;
 public class RegisterUserDto {
     @NotEmpty
     private String username;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
     @NotEmpty
     private String password;
     @NotEmpty
