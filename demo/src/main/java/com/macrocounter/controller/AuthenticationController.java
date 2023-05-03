@@ -55,7 +55,7 @@ public class AuthenticationController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public void register(@RequestBody RegisterUserDto newUser) {
         try {
             User user = userDao.findByUsername(newUser.getUsername());
