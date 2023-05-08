@@ -2,45 +2,49 @@ package com.macrocounter.model;
 
 public class MacrosGoal {
     private int macrosGoalId;
-    private int protein;
-    private int carbs;
-    private int fats;
+    private int proteinGoal;
+    private int carbsGoal;
+    private int fatsGoal;
 
-    public MacrosGoal(int macrosGoalId, int protein, int carbs, int fats) {
+    public MacrosGoal(int macrosGoalId, int proteinGoal, int carbsGoal, int fatsGoal) {
         this.macrosGoalId = macrosGoalId;
-        this.protein = protein;
-        this.carbs = carbs;
-        this.fats = fats;
+        this.proteinGoal = proteinGoal;
+        this.carbsGoal = carbsGoal;
+        this.fatsGoal = fatsGoal;
     }
     public MacrosGoal() {
 
     }
 
+    public int getMacrosGoalId() {
+        return macrosGoalId;
+    }
+
     public int getProtein() {
-        return protein;
+        return proteinGoal;
     }
 
     public int getCarbs() {
-        return carbs;
+        return carbsGoal;
     }
 
     public int getFats() {
-        return fats;
+        return fatsGoal;
     }
 
     public void setMacrosGoalId(int macrosGoalId) {
         this.macrosGoalId = macrosGoalId;
     }
 
-    public void setProtein(int protein) {
-        this.protein = protein;
+    public void setProteinGoal(int proteinGoal) {
+        this.proteinGoal = proteinGoal;
     }
 
-    public void setCarbs(int carbs) {
-        this.carbs = carbs;
+    public void setCarbsGoal(int carbsGoal) {
+        this.carbsGoal = carbsGoal;
     }
 
-    public void setFats(int fats) {
-        this.fats = fats;
+    public void setFatsGoal(int fatsGoal) {
+        this.fatsGoal = fatsGoal;
     }
 }

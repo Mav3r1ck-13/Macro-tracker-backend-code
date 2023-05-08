@@ -1,6 +1,4 @@
 package com.macrocounter.controller;
-
-
 import com.macrocounter.dao.FoodDao;
 import com.macrocounter.dao.MacrosDao;
 import com.macrocounter.model.Food;
@@ -16,12 +14,10 @@ public class MacroController {
 
     private final FoodDao foodDao;
 
-    private final MacrosDao macrosDao;
 
-    public MacroController(FoodDao foodDao, MacrosDao macrosDao) {
+    public MacroController(FoodDao foodDao) {
         this.foodDao = foodDao;
 
-        this.macrosDao = macrosDao;
     }
 
     @RequestMapping(path = "/daily_food_intake", method = RequestMethod.GET)
@@ -43,11 +39,6 @@ public class MacroController {
         // Look in to SQL for this (missing food_id. maybe return food_id?)
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/setMacros", method = RequestMethod.POST)
-    public MacrosGoal createMacros (@RequestBody MacrosGoal macrosGoal) {
-        return macrosDao.setMacros(macrosGoal);
-    }
 //
 //    @ResponseStatus(HttpStatus.NO_CONTENT)
 //    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

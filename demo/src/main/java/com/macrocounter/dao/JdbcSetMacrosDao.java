@@ -24,9 +24,9 @@ public class JdbcSetMacrosDao implements MacrosDao {
 
     private MacrosGoal mapRowToMacros(SqlRowSet rowset) {
         MacrosGoal macrosGoal = new MacrosGoal();
-        macrosGoal.setProtein(rowset.getInt("protein_goal"));
-        macrosGoal.setCarbs(rowset.getInt("carbs_goal"));
-        macrosGoal.setFats(rowset.getInt("fats_goal"));
+        macrosGoal.setProteinGoal(rowset.getInt("protein_goal"));
+        macrosGoal.setCarbsGoal(rowset.getInt("carbs_goal"));
+        macrosGoal.setFatsGoal(rowset.getInt("fats_goal"));
         return macrosGoal;
     }
 }
