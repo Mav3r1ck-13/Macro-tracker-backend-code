@@ -3,7 +3,9 @@ package com.macrocounter.dao;
 import com.macrocounter.model.MacrosGoal;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcSetMacrosDao implements MacrosDao {
 
     private final JdbcTemplate jdbcTemplate;
