@@ -18,7 +18,7 @@ public class JdbcSetMacrosDao implements MacrosDao {
     public MacrosGoal setMacros(MacrosGoal macros) {
         String sql = "INSERT INTO macros (macros_goal_id, protein_goal, carbs_goal, fats_goal)\n" +
                 "VALUES (?,?,?,?) RETURNING macros_goal_id;";
-        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, macros.getProtein(),
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, macros.getMacrosGoalId(), macros.getProtein(),
                 macros.getCarbs(), macros.getFats());
         macros.setMacrosGoalId(newId);
         return macros;
@@ -26,6 +26,7 @@ public class JdbcSetMacrosDao implements MacrosDao {
 
     private MacrosGoal mapRowToMacros(SqlRowSet rowset) {
         MacrosGoal macrosGoal = new MacrosGoal();
+        macrosGoal.setMacrosGoalId(rowset.getInt("macros_goal_id"));
         macrosGoal.setProteinGoal(rowset.getInt("protein_goal"));
         macrosGoal.setCarbsGoal(rowset.getInt("carbs_goal"));
         macrosGoal.setFatsGoal(rowset.getInt("fats_goal"));

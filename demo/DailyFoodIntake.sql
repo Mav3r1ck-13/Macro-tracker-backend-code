@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS daily_food_intake, users;
+DROP TABLE IF EXISTS daily_food_intake, macros, users;
 
 CREATE TABLE daily_food_intake (
     intake_id serial NOT NULL,
@@ -11,6 +11,15 @@ CREATE TABLE daily_food_intake (
     meal varchar(100) NOT NULL,
     food_name varchar(1000) NOT NULL,
     CONSTRAINT pk_daily_food_intake PRIMARY KEY (intake_id)
+);
+
+CREATE TABLE macros (
+	macros_goal_id serial NOT NULL,
+	protein_goal int NOT NULL,
+	carbs_goal int NOT NULL,
+	fats_goal int NOT NULL,
+	calories int,
+	CONSTRAINT pk_macros PRIMARY KEY (macros_goal_id)
 );
 
 CREATE TABLE users (
