@@ -46,15 +46,13 @@ public class MacroController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/setMacros", method = RequestMethod.POST)
     public MacrosGoal createMacros (@RequestBody MacrosGoal macrosGoal) {
+
         return macrosDao.setMacros(macrosGoal);
     }
 
+    @RequestMapping(path = "/getMacros", method = RequestMethod.GET)
+    public List<MacrosGoal> macroGoalList() {
+        return macrosDao.listMacros();
+    }
 
-//
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-//    public void deleteFood(@PathVariable int id) {
-//
-//        foodDao.delete(id);
-//    }
 }

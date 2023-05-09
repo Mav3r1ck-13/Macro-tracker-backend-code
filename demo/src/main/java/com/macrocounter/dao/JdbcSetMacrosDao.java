@@ -5,6 +5,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcSetMacrosDao implements MacrosDao {
 
@@ -22,6 +25,18 @@ public class JdbcSetMacrosDao implements MacrosDao {
                 macros.getCarbs(), macros.getFats());
         macros.setMacrosGoalId(newId);
         return macros;
+    }
+    @Override
+    public List<MacrosGoal> listMacros() {
+        List<MacrosGoal> macrosGoalList = new ArrayList<>();
+        String sql = "SELECT macros_goal_id, protein_goal, carbs_goal, fats_goal\n" +
+                "FROM macros;\n";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            MacrosGoal macrosGoal = mapRowToMacros(results);
+            macrosGoalList.add(macrosGoal);
+        }
+        return macrosGoalList;
     }
 
     private MacrosGoal mapRowToMacros(SqlRowSet rowset) {
